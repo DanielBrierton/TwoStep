@@ -1,0 +1,28 @@
+section[role="region"] > header:first-child .icon-i {
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    font-size: 2.2rem;
+    line-height: 5.2rem;
+}
+
+.list-item {
+    -webkit-transition: background-color 1s linear;
+    -moz-transition: background-color 1s linear;
+    -ms-transition: background-color 1s linear;
+    -o-transition: background-color 1s linear;
+    transition: background-color 1s linear;
+}
+
+[data-type="list"] li.auth-item {
+    height: 8.5rem;
+}
+
+[data-type="list"] li p.auth-code, [data-type="list"] li p.auth-code:first-of-type:last-of-type {
+    line-height: 6.5rem;
+    padding-left: 1rem;
+    font-size: 4.5rem;
+}
+
+.thirty {
+    margin: 0.5rem 0;
+}

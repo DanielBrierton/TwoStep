@@ -1,0 +1,19 @@
+.add-account {
+    margin: 1rem;
+}
+
+.add-account label {
+    font-size: 1.6rem;
+}
+
+.add-account .cancel-button {
+    margin-top: 2rem;
+    width: 48%;
+    float: left;
+}
+
+.add-account .save-button {
+    margin-top: 2rem;
+    width: 48%;
+    float: right;
+}

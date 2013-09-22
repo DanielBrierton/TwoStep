@@ -1,0 +1,6 @@
+<menu type="toolbar">
+    <% _.each(menuItems, function(item) { %>
+    <a href="#"><span class="icon icon-<%= item.type %>"><%= item.type %></span></a>
+    <% }); %>
+</menu>
+<h1><%= title %></h1>
