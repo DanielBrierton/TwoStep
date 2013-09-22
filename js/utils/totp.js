@@ -1,4 +1,8 @@
 define(function() {
+    /*
+     * Based on the great work by russ at http://blog.tinisles.com/2011/10/google-authenticator-one-time-password-algorithm-in-javascript/
+     */
+
     return {
         dec2hex: function(s) {
             return (s < 15.5 ? '0' : '') + Math.round(s).toString(16);
@@ -9,7 +13,7 @@ define(function() {
         },
 
         base32tohex: function(base32) {
-            var base32chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
+            var base32chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567';
             var bits = "";
             var hex = "";
 
@@ -39,15 +43,16 @@ define(function() {
             var time = this.leftpad(this.dec2hex(Math.floor(epoch / 30)), 16, '0');
 
             // external library for SHA functionality
-            var hmacObj = new jsSHA(time, "HEX");
-            var hmac = hmacObj.getHMAC(key, "HEX", "SHA-1", "HEX");
+            var hmacObj = new jsSHA(time, 'HEX');
+            var hmac = hmacObj.getHMAC(key, 'HEX', 'SHA-1', 'HEX');
 
-            if (hmac != 'KEY MUST BE IN BYTE INCREMENTS') {
-                var offset = this.hex2dec(hmac.substring(hmac.length - 1));
+            var offset;
+            if (hmac !== 'KEY MUST BE IN BYTE INCREMENTS') {
+                offset = this.hex2dec(hmac.substring(hmac.length - 1));
             }
 
             var otp = (this.hex2dec(hmac.substr(offset * 2, 8)) & this.hex2dec('7fffffff')) + '';
-            return (otp).substr(otp.length - 6, 6).toString();
+            return otp.substr(otp.length - 6, 6);
         }
     };
 });
